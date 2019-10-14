@@ -18,6 +18,7 @@
  */
 package com.paysafe.cardpayments;
 
+import com.google.gson.annotations.Expose;
 import com.paysafe.common.impl.DomainObject;
 import com.paysafe.common.impl.GenericBuilder;
 import com.paysafe.common.impl.NestedBuilder;
@@ -29,9 +30,11 @@ import com.paysafe.common.impl.NestedBuilder;
 public class MerchantDescriptor implements DomainObject {
 
   /** The dynamic descriptor. */
+  @Expose
   private String dynamicDescriptor;
   
   /** The phone. */
+  @Expose
   private String phone;
 
   /**

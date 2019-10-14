@@ -68,6 +68,7 @@ public class Verification implements BaseDomainObject {
   private Boolean dupCheck;
   
   /** The merchant descriptor. */
+  @Expose
   private MerchantDescriptor merchantDescriptor;
   
   /** The description. */
