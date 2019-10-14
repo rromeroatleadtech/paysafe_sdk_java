@@ -33,7 +33,6 @@ import com.paysafe.common.impl.Request;
  * The Class CustomerVaultService.
  */
 public class CustomerVaultService {
-
   /**
    * The client.
    */
@@ -68,6 +67,8 @@ public class CustomerVaultService {
   /** The Constant MANDATES. */
   private static final String MANDATES ="/mandates/";
 
+  /** Merchant Customer Id Query String parameter name */
+  private static final String MERCHANT_CUSTOMER_ID = "merchantCustomerId";
   /**
    * Instantiates a new customer vault service.
    *
@@ -643,6 +644,24 @@ public class CustomerVaultService {
             .queryStr(queryStr)
             .build();
     
+    Profile returnval=client.processRequest(request, Profile.class);
+    return returnval;
+  }
+
+  public final Profile
+  lookup(final String merchantCustomerId)
+          throws IOException, PaysafeException {
+
+    final HashMap<String, String> queryStr = new HashMap<String, String>();
+
+    queryStr.put(MERCHANT_CUSTOMER_ID, merchantCustomerId);
+
+    final Request request = Request.builder()
+                                   .uri(prepareUri(PROFILE_PATH))
+                                   .method(Request.RequestType.GET)
+                                   .queryStr(queryStr)
+                                   .build();
+
     Profile returnval=client.processRequest(request, Profile.class);
     return returnval;
   }
