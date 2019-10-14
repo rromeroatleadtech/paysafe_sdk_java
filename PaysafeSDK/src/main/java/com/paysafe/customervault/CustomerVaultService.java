@@ -651,10 +651,20 @@ public class CustomerVaultService {
   public final Profile
   lookup(final String merchantCustomerId)
           throws IOException, PaysafeException {
+    return this.lookup(merchantCustomerId, false);
+  }
+
+  public final Profile
+  lookup(final String merchantCustomerId, final boolean includeCards)
+          throws IOException, PaysafeException {
 
     final HashMap<String, String> queryStr = new HashMap<String, String>();
 
     queryStr.put(MERCHANT_CUSTOMER_ID, merchantCustomerId);
+
+    if(includeCards) {
+      queryStr.put("fields", "cards");
+    }
 
     final Request request = Request.builder()
                                    .uri(prepareUri(PROFILE_PATH))
