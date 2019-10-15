@@ -505,6 +505,42 @@ public class Card implements BaseDomainObject {
       card.setProfileId(profileId);
       return this;
     }
+
+    /**
+     * Set the Single Use Token
+     * @param singleUseToken the Single Use Token
+     * @return CardBuilder
+     */
+    public final CardBuilder singleUseToken(final String singleUseToken) {
+      card.setSingleUseToken(singleUseToken);
+      return this;
+    }
+
+    /**
+     * Set the Default Card Indicator state
+     * @param defaultCardIndicator The default card indicator state
+     * @return CardBuilder
+     */
+    public final CardBuilder defaultCardIndicator(final Boolean defaultCardIndicator) {
+      card.setDefaultCardIndicator(defaultCardIndicator);
+      return this;
+    }
+
+    /**
+     * Enable the default card indicator
+     * @return CardBuilder
+     */
+    public final CardBuilder enableDefaultCardIndicator() {
+      return this.defaultCardIndicator(true);
+    }
+
+    /**
+     * Disable the default card indicator
+     * @return CardBuilder
+     */
+    public final CardBuilder disableDefaultCardIndicator() {
+      return this.defaultCardIndicator(false);
+    }
   }
 
   /**
