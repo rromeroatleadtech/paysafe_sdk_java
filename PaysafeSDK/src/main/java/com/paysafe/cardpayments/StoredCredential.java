@@ -14,6 +14,12 @@ public class StoredCredential implements DomainObject{
 	@Expose
 	private Occurrence occurrence;
 
+	@Expose
+	private String initialTransactionId;
+
+	@Expose
+	private String externalInitialTransactionId;
+
 	/**
 	   * Gets the type.
 	   *
@@ -48,6 +54,22 @@ public class StoredCredential implements DomainObject{
 	   */
 	public void setOccurrence(Occurrence occurrence) {
 		this.occurrence = occurrence;
+	}
+
+	public String getInitialTransactionId() {
+		return initialTransactionId;
+	}
+
+	public void setInitialTransactionId(String initialTransactionId) {
+		this.initialTransactionId = initialTransactionId;
+	}
+
+	public String getExternalInitialTransactionId() {
+		return externalInitialTransactionId;
+	}
+
+	public void setExternalInitialTransactionId(String externalInitialTransactionId) {
+		this.externalInitialTransactionId = externalInitialTransactionId;
 	}
 
 	/**
@@ -89,6 +111,18 @@ public class StoredCredential implements DomainObject{
 			storedCredential.setOccurrence(occurrence);
 			return this;
 			
+		}
+
+		public final StoredCredentialBuilder<BLDRT>initialTransactionId(final String initialTransactionId){
+			storedCredential.setInitialTransactionId(initialTransactionId);
+			return this;
+
+		}
+
+		public final StoredCredentialBuilder<BLDRT>externalInitialTransactionId(final String externalInitialTransactionId){
+			storedCredential.setExternalInitialTransactionId(externalInitialTransactionId);
+			return this;
+
 		}
 	}
 }
