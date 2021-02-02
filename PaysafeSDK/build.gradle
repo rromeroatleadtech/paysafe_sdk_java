@@ -8,7 +8,7 @@ repositories {
 
 jar {
 	baseName = 'PaysafeSDK'
-	version = '1.0.5-leadtech'
+	version = '1.0.6'
 }
 
 sourceCompatibility = 1.6
